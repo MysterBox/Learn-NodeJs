@@ -1,34 +1,23 @@
-const aString = '10';
-const aNumber = 10
+let language = 'Bali';
+let salamPembuka = null
 
-console.log(aString == aNumber) // true, karena nilainya sama-sama 10
-console.log(aString === aNumber) // false, karena walaupun nilainya sama, tetapi tipe datanya berbeda
+switch(language){
+    case 'Bali':
+        salamPembuka = 'semeton';
+        break;
 
-/* output
-true
-false
-*/
+    case 'jakarta':
+        salamPembuka = 'Oi Kontol';
+        break;
 
-let a = 10;
-let b = 12;
-
-/* AND operator */
-console.log(a < 15 && b > 10); // (true && true) -> true
-console.log(a > 15 && b > 10); // (false && true) -> false
-
-/* OR operator */
-console.log(a < 15 || b > 10); // (true || true) -> true
-console.log(a > 15 || b > 10); // (false || true) -> true
-
-/* NOT operator */
-console.log(!(a < 15)); // !(true) -> false
-console.log(!(a < 15 && b > 10)); // !(true && true) -> !(true) -> false
-
-/* output
-true
-false
-true
-true
-false
-false
-*/
+    case 'surabaya':
+        salamPembuka = 'Halo Siak'
+        break;
+        
+    default:
+        salamPembuka = 'Tidak Ada salam Apapun';
+}
+console.log(salamPembuka);
+/* Keterangan
+kalau di Switch-case tidak ada break nya maka jawabannya'
+akan di majukan sampai bertemu break atau bertemu default*/
