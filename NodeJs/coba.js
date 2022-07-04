@@ -1,30 +1,35 @@
-// let result = 81;
-//  let score = (result>90) ? 'A' : 'B';
-//      score = (result>=80 && result<=89) ? 'B' : 'C';
-//      score = (result>=70 && result<=79) ? 'C' : 'D';
-//      score = (result>=60 && result<=69) ? 'D' : 'E';
-//      score = (result<=60 && result>=0 ) ? 'E' : 'tidak lulus';
+// Belajar (Object)
+// Berbagai Penulisan Object
+// di delama object itu ada nama nya Key Dan Value yang biasa di sepebut property
+// saat kita menulis kan key kita bisa tulis tanpa tanda petik
+// tanda petik saat menulis key ketika ada sepasi saja
+const belajarObject = {
+    Name: 'YoganTara',
+    Umur : 18,
+    Status: false,
+    Hobi: "ngoding",
+    'Saya suka': 'makan',
+    IbuSaya: 'keren',
+};
+// Cara Menjalankan Object
+console.log(`nama saya adalah ${belajarObject.Name}`);
+console.log(`kebiasaan saya setelah olahraga = ${belajarObject["Saya suka"]}`)
+console.log(`Ibus saya ${belajarObject.IbuSaya}`);
+console.log(belajarObject);
 
-//  console.log(score);
+// Cara menambahka Object baru
+belajarObject.color = 'Blue';
+console.log('menambahkan Object baru ke propert');
+console.log(belajarObject);
 
-// let nilai = -1;
-//  let score = nilai >90 ? 'A'
-//            : nilai >=80 && nilai <=89 ? 'B'
-//            : nilai >=70 && nilai <=79 ? 'C'
-//            : nilai >=60 && nilai <=69 ? 'D'
-//            : nilai >=0  && nilai <=59 ? 'E'
-//            : console.log('loh');
-        
-//            console.log(score);
+// Cara Menghapus Object yang ada di property
+delete belajarObject.Hobi;
+console.log('mengahapus object yang ada di property');
+console.log(belajarObject);
 
-let nilai=76;
+// Kita dapan mengubah Value yang ada di property
+belajarObject.Name = 'Yogan';
+console.log('mengubah Velue Object yang ada di property');
+console.log(belajarObject);
 
-if (score>=90){
-console.log(result = 'Anda mendapatkan nilai A.');
-}else if (score >=80 && score <=89){
-console.log(result = 'Anda mendapatkan nilai B.');
-}else if (score >=70 && score <=79){
-console.log(result = 'Anda mendapatkan nilai C.');    
-}else if (score >=60 && score <=69){
-console.log(result = 'Anda mendapatkan nilai D.');    
-}else {(result = 'Anda mendapatkan nilai E.');}
+
