@@ -1,35 +1,32 @@
-// Belajar (Object)
-// Berbagai Penulisan Object
-// di delama object itu ada nama nya Key Dan Value yang biasa di sepebut property
-// saat kita menulis kan key kita bisa tulis tanpa tanda petik
-// tanda petik saat menulis key ketika ada sepasi saja
-const belajarObject = {
-    Name: 'YoganTara',
-    Umur : 18,
-    Status: false,
-    Hobi: "ngoding",
-    'Saya suka': 'makan',
-    IbuSaya: 'keren',
-};
-// Cara Menjalankan Object
-console.log(`nama saya adalah ${belajarObject.Name}`);
-console.log(`kebiasaan saya setelah olahraga = ${belajarObject["Saya suka"]}`)
-console.log(`Ibus saya ${belajarObject.IbuSaya}`);
-console.log(belajarObject);
+// Belajar Array 
 
-// Cara menambahka Object baru
-belajarObject.color = 'Blue';
-console.log('menambahkan Object baru ke propert');
-console.log(belajarObject);
+// Cara membuat Array
+let MyArray = ['yogan','tara',1,2,false,true,'NodeJs'];
 
-// Cara Menghapus Object yang ada di property
-delete belajarObject.Hobi;
-console.log('mengahapus object yang ada di property');
-console.log(belajarObject);
+// Cara-cara menggeluarkan Arry 
+console.log(MyArray);
+console.log(MyArray[0]);
+console.log(MyArray[1]);
+console.log(MyArray[2]);
+console.log(MyArray[3]);
+console.log(MyArray[4]);
+console.log(MyArray[5]);
+console.log(MyArray[6]);
+console.log(MyArray[7]); // dan jika melebihi nilai akan (undefined)
+console.log('panjang Array Adalah = ' + MyArray.length) // dan ini cara memperlihatkan panjang Array
 
-// Kita dapan mengubah Value yang ada di property
-belajarObject.Name = 'Yogan';
-console.log('mengubah Velue Object yang ada di property');
-console.log(belajarObject);
+const ArrayMy = ['satu','dua',3,4,'lima'];
+
+// Ini untuk Menghapus Array
+ArrayMy.pop(); // ini untuk menghapus data array pada bagian belakang 
+ArrayMy.shift(); // ini utuk menghapus data array pada bagian depan
+
+// Ini Cara Menambah kan Array
+ArrayMy.push(5); // ini menambahkan data Array Pada bagian belakang
+ArrayMy.unshift(1); // Ini menambahkan dara Array Pada bagian Depan
+
+console.log(ArrayMy);
+
+
 
 
