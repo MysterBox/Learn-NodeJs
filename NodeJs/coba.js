@@ -1,58 +1,93 @@
- /**
-===Belajar Destructuring Object===
-1. Penulisan Sintaksis Destructuring Object
-2. Destructuring Assignment
-3. Default Value 
-4. Assignment to Defferent local variable name
- **/
-//!!! kalau kita membuat destruturing object kita harus menggunakan (const) tidak boleh (let/var)
+/** Belajar Destructuring Array
+ * 1. penulisan Destructuring Array
+ * 2. Destructuring Assignment Array
+ * 3. Default Values
+ */
+// Perbedaan penulisan Destructuring Array dan Destructuring Object
+// kalau Destructuring Object Menggunakan tanda {}
+// sedangkan Destructuring Array Menggunakan tanda []
+
 // 1.
-const profile = {
-    name: 'yogan tara', 
-    age: 18,
-    hobi: "game",
-};
-const {name,age,hobi } = profile;
+const MyArray = ['yogan',"Tara",18,false];
 
-console.log(name,age,hobi);
+// kita bisa bebas memberi nama pada variable dan yang terpenting adalah
+// nomer urutan pada index array 
+const [fristName,lastName,Age,Status] = MyArray;
 
-// 2.
-const profile1 = {
-    name1: 'yogan',
-    age1: 18,
-}
-// kalau Destructuring Assigment kita taruh di atas declarasi variable
-// maka nilai dari Destructuring Assigment tidak akan keluar / error
-let name1 = 'Tara';
-let age1 = 20;
-
-// kita menginisialisasikan nilai baru melalui Destructuring Assignment
-({name1,age1} = profile1);
-console.log(name1,age1);
-
-// 3.
-let profile2 = {
-    name2 : 'yogan tara',
-    age2 : 18,
-    status2 : false,
-}
-// kalau kita ingin menambahkan variable yang bukan value dari object/property 
-// maka kita bisa tambahkan menggunakan (=)
-const {name2,age2,status2,hobi2="bola"} = profile2; 
-console.log(name2);
-console.log(age2);
-console.log(status2);
-console.log(hobi2);
-
-// 4.
-
-let profile3 ={
-    depan3: 'yogan',
-    belakang3: "tara",
-}
-
-// kita bisa mengubah nama variable object/property di dalam Destruturing Object
-// kita menggunakan (:)
-const {depan3 : fristName, belakang3: lastName} = profile3;
 console.log(fristName);
 console.log(lastName);
+console.log(Age);
+console.log(Status);
+
+// sebernarnya kita juga bisa memasukan index tertentu di Destructuring dengan menggunakan tanda |,|
+let MyArray1 = [1,2,3,4,5];
+
+const [,,,nomer4]=MyArray1;
+console.log(nomer4);
+
+// 2.
+// kita juga bisa menuliskan Destructuring Assignment pada Array
+// dengan tidak menggunakan tanda kurung()
+const MyArray2 = [1,2,3,4,5];
+
+let nomer1 =11;
+let nomer2 =12;
+let nomer3 =13;
+
+[nomer1,nomer2,nomer3] = MyArray2;
+
+console.log(nomer1);
+console.log(nomer2);
+console.log(nomer3);
+
+// Destructuring Assignment Array sangat berfungsi 
+// ketika melakukan pertukaran nilai pada 2 variable
+// ini contoh menggunakan algoritna biasa
+let a = 1;
+let b = 2;
+let empty;
+
+console.log('nilai sebelum di swap');
+console.log('nilai a = ' + a );
+console.log('nilai b = ' + b);
+
+// a = b; <== jika kita menulisnya begini nilai a akan menjadi 2 dan nilai b akan menjadi 2
+// b = a; <== makanya kita membutuh kan variable ketiga agar kita jadikan wadah
+empty = a;
+a = b;
+b = empty;
+
+console.log("nilai sesudah di swap");
+console.log("nilai a = " + a);
+console.log("nilai b = " + b);
+
+// ini contoh menggunkan algoritma Destructuring Assignment Array
+let i = 11;
+let j = 12;
+let k = 13;
+
+console.log('nilai sebelum di swap');
+console.log('nilai i = ' + i);
+console.log('nilai j = ' + j);
+console.log('nilai k = ' + k);
+
+
+// [i,k]=[j,i]=[k,j]; kalau kita menulis Destructuring Array lebih dari dua variable nilai akan bisa menjadi sama
+[i,j]=[j,i]; // kita hanya bisa menukarkan dua variable saja
+
+console.log("nilai sesudah di swap");
+console.log('nilai i = ' + i);
+console.log('nilai j = ' + j);
+console.log('nilai k = ' + k);
+
+// 3.
+// Destructuring Array juga memilika nilai Default sama seperti Destructuring Object
+let MyArray3 = ['yogan'];
+
+let [namaDepan,namaBelakang = 'tara'] = MyArray3; // kalau namaBelakang tidak di isi nilai maka hasilnya akan undefined
+
+console.log (namaDepan);
+console.log (namaBelakang);
+console.log (MyArray3); // dan jika kita menambahkan nilai pada Destructuring Array nilai/index Array tidak akan bertambah
+                        // hanya Deestructuring Array nya saja yang berubah dan mendapatkan nilai baru
+
