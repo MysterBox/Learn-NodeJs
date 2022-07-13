@@ -1,40 +1,39 @@
-/** ==MAP==
- * Map adalah tipe data yang menyimpan koleksi layaknya seperti Object
- * yang membedakan Map dan Object adalah Map memperbolehkan key menyimpan
- * tipe data apapun sedangkan Object hanya memperbolehkan key menyimpan 
- * tipe data bertipe String dan Symbol
- */
-// penulisan map constructur 
-let myMap = new Map(); // empty 
+const mySet1 = new Set()
 
-myMap.set('gan','yogan tara'); // | set() | add Map key and Value
-myMap.set('node','JavaSript');
-myMap.set('age',18);
-myMap.set('stat8s',false);
-myMap.set('gan','yogan'); // pada code ini key 'gan' ada dua di sini myMap akan memakai nilai terbaru mada key 'gan'
+mySet1.add(1)           // Set [ 1 ]
+mySet1.add(5)           // Set [ 1, 5 ]
+mySet1.add(5)           // Set [ 1, 5 ]
+mySet1.add('some text') // Set [ 1, 5, 'some text' ]
+const o = {a: 1, b: 2}
+mySet1.add(o)
+mySet1.add({a: 1, b: 2})   // o is referencing a different object, so this is okay
 
-console.log(myMap);
+mySet1.has(1)              // true
+mySet1.has(3)              // false, since 3 has not been added to the set
+mySet1.has(5)              // true
+console.log(mySet1.has(Math.sqrt(25)));  // true
+mySet1.has('Some Text'.toLowerCase()) // true
+mySet1.has(o)       // true
 
-console.log(myMap.has('tai')) // menggunakan | has() | untuk melihat apakah ada key pada Map myMap yang akan menghasilkan nilai Bollean
+mySet1.size         // 5
 
-console.log('nama saya ' + myMap.get('gan'))// | get() | digunakan utuk mendapatkan satu nilai pada Map
+mySet1.delete(5)    // removes 5 from the set
+mySet1.has(5)       // false, 5 has been removed
 
-// kita juga bisa menuliskan Map secara langsung dengan cara multi demesi array
-let mapMulti = new Map ([
-    ['dog','bruno'],
-    ['cat',false],
-    [4,2004],
-    [18,18]
-]);
-console.log(mapMulti);
-mapMulti.delete(18); // | delete() | digunakan untuk menghapus key dan nilai 
-console.log(mapMulti);
+mySet1.size         // 4, since we just removed one value
 
-// loop for pada Map
-for (let [k,v] of mapMulti){
-    console.log(k, ' : ' ,v);
-}
+console.log(mySet1)
 
-mapMulti.forEach((v,k) => {
-    console.log(v," : " ,k);
-})
+// fuction dari Math.sqrt adalah mencari kebenaran dari akar kuadrat
+console.log(Math.sqrt(49));
+
+// Structur data Set tidak bisa di duplikasi tapi set bisa di duplikasi
+// ketika mengacu pada object yang berbeda
+let set1 = new Set();
+set1.add(1);
+set1.add(2);
+set1.add(3);
+const a = {a:2}
+set1.add(a);
+set1.add({a:2});
+console.log(set1);
