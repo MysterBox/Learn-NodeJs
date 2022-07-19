@@ -1,86 +1,64 @@
-// Belajar Function
-// ini cara Declarisi Fuction
-function coba1(){
-	console.log('Hello World !');
+// Belajar Function Parameter
+//kita bisa memanfaatkan destructuring object untuk memebuat parameter agar menghasilkan nilai
+const object1 = {
+    namaDepan: 'yogan',
+    namaBelakang: 'tara',
 }
-coba1();
-// tetapi ketika function menjalan kan baris code yang sama kurang fucsional
-// di sini kita dapan membuat function menjadi lebih fucsional menggunakan parameter
-
-// di sini contoh kita memanfaatkan parameter untuk mengubah perilaku function
-function siapaAku(name){ // ini menggunakan parameter string
-	if(name === "yogan"){
-		console.log('kamu benar');
-	}else{
-		console.log('kamu salah');
-	}
+// kalau kita tidak memaki tanda kurung sepesial object tidak akan keluar
+function namaLengkap({namaDepan,namaBelakang}){
+console.log(`${namaDepan} ${namaBelakang}`);
 }
-siapaAku('yogan');
-// ada perbedaan parameter string dan parameter number
-// kalau  di string kita bisa juga tidak pakai retrun
-// sedang kan kalau number kita harus menggunakan return untuk menggeluarkan hasil dari function
+namaLengkap(object1)
 
-// ini contoh parametern number dengan menggunakan return
-function cobaNum(i,j){
-	let result = i*j;
-	return result
+// DEFAULT PARAMETER
+// Fungsi pada JavaScript tidak melakukan pengecekan terhadap jumlah maupun tipe 
+// argumen yang dimasukkan ke dalam parameter.Ini berarti kita bisa
+// memasukkan argumen meskipun tidak sesuai dengan parameter yang telah didefinisikan.
+function exponentsFormula1(baseNumber, exponent) {
+    let result = baseNumber ** exponent;
+    console.log(`${baseNumber}^${exponent} = ${result}`);
 }
-console.log(cobaNum(5,5));
 
-// ini contoh penggunaan return pada string
-function akuSiapa(name){
-	if(name === 'yogan'){
-		return console.log('kamu bener benar dukun');
-	}else if(name === 'yogan tara'){
-		return console.log('kamu hampir benar');
-	}else{
-		return console.log('kamu goblok');
-	}
+exponentsFormula1(2);
+/* output
+2^undefined = NaN
+*/
+
+// Seperti yang kita lihat pada contoh kode di atas, ketika argumen lebih sedikit dari parameternya,
+// maka parameter yang tidak terdefinisi akan bernilai undefined. Sebagai solusi jika memungkinkan,
+// kita bisa memberikan nilai default pada parameter. Nilai ini akan digunakan jika kita tidak memasukkan parameter.
+
+function exponentsFormula2(baseNumber, exponent = 3) {
+    let result = baseNumber ** exponent;
+    console.log(`${baseNumber}^${exponent} = ${result}`);
 }
-akuSiapa('yogan tara');
 
-// kita juga bisa memakai greeting() === bisa apa saja namanya bukan greeting saja 
-// agar kita bisa mengubah ngubah nama function parameternya
-// function greeting(i,j){
-// 	let result2 = i+j;
-// 	return console.log(result2);
-// }
-// let pertambahan = greeting(5,5);
-// pertambahan;
-// !!! kita tidak bisa menggunakan satu nama ke banyak parameter
-function greeting(a,b){
-	 let result = a*b;
-	 return result;
-}
-let perkalian = greeting(5,5);
-console.log(perkalian);
+exponentsFormula2(3);
+/* output
+3^2 = 9
+*/
 
-// entah kenapa function greeting masih ada bag
-
-// ada juga nama nya Expression Function
-// Pada expression function umumnya kita tidak perlu menuliskan nama fungsinya. 
-// Fungsi yang tidak bernama juga dikenal dengan anonymous function. 
-// Berikut ini merupakan contoh penulisan expression function:
-
-const greeti = function(name, language) {
-    if(language === "English") {
-        return "Good Morning " + name + "!";
-    } else if (language === "French") {
-        return "Bonjour " + name + "!";
-    } else {
-        return "Selamat Pagi " + name + "!";
+// Rest Parameter
+// Rest parameter juga dituliskan menggunakan three consecutive dots (...).
+//  Dengan rest parameter, kita dapat menggabungkan beberapa elemen menjadi satu array.
+//   Tentu teknik ini sangat bermanfaat ketika kita hendak membuat sebuah fungsi dengan parameter yang tidak pasti.
+function sum(...numbers) {
+    let result = 0;
+    for (let number of numbers) {
+        result += number;
     }
+    return result;
 }
-let foo = console.log(greeti('Ron', 'English'));
 
-const greet = function(name, negara){
-	if(negara === 'indonesia' === 'Indonesia'){
-		return 'selamat pagi ' + name;
-	}else if(negara === 'bali' === 'Bali'){
-		return 'cicing cai ' + name; 
-	}else {
-		return 'dasar bukan ' + name +' golongan kami';
-	}
+console.log(sum(1, 2, 3, 4, 5));
+
+function sum2(...number){
+    result = 0;
+    for (const simpan of number) {
+        result += simpan;
+    }
+    return console.log(result);
 }
-console.log(greet('yogan','bali'));
+
+sum2(1,2,3,4,5,6);
 
