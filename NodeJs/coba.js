@@ -1,44 +1,63 @@
-// Belajar Arrow Function / Arrow Function Expresion
+/**
+ * Kita Akan Belajar variable Scope
+ * Variabel JavaScript menggunakan fungsi untuk mengelola cakupannya.
+ * Jika variabel didefinisikan di luar fungsi, maka variabel tersebut bersifat global.
+ * Jika variabel didefinisikan di dalam fungsi, maka variabel bersifat lokal
+ * dan cakupannya hanya pada fungsi tersebut beserta turunannya.
+ */
 
-// Ini Funciton Reguler
-// function declaration
-function sayHello(a,b) {
-    console.log(a*b);
+//  Berikut ini merupakan contoh scoping dalam code
+// ini Global Variable dapaat di akses di function Bni dan Cni dan di luar function 
+const a ='A'; 
+
+function Bni(){
+    // local Variable dpat di aksi di funntion Bni() dan Cni()
+    // Tetapi tidak dapat di akses di luar dari function nya
+    // let b = 'B';
+    console.log('B');
+
+    Cni();
+    function Cni(){
+        // local Variable hanya dapat di akses di Functon Cni() saja
+        // let c='C';
+        console.log('C');
+    }
 }
- sayHello(4,4);
+// Cara MengAkses nya
+// Bni(Cni());
+// Cni()
+Bni(); 
+console.log(a);
 
-// function expression
-const sayName = function (name) {
-    console.log(`Nama saya ${name}`)
+// Kita harus berhati-hati dalam mendefinisikan variabel di dalam fungsi.
+// Pasalnya, kita bisa mendapatkan hasil yang tidak diperkirakan
+// Contoh
+function contohKacau(a){
+    result = a*a;
+    return result;
 }
-sayName('ahCok');
+// contohKacau(7); jika kita tulis kode di sini maka code akan eror
+let result = 8;
+contohKacau(7); // dan jika tulis kode di sini hasil akan kacau
 
-// Ini Function Arrow
-// function expression
-const sayHello2 = (greet) => {
-    console.log(`${greet}!`)
-}
-sayHello2('yogan');
- 
-const sayName2 = (name) => {
-    console.log(`Nama saya ${name}`)
-}
-sayName2('Tara');
+console.log(result); // output 49
+// kenapa hasil nya (49) karna variable |result| yang ada di dalam function contohKacau() 
+// tidak berisi tipetipe data / kita tidak menetapkan variable |result| sebagai cakupan lokal
+// kita tidak menggunakan tipe data / keyworld |let||const||var| saat mendekarasikan variable |result|
+// maka dari situ variable |result| yang ada di dalam function contohKacau() manjadi global
 
-// Perbedaan Funciton Reguler dan Arrow adalah 
-// Function Reguler bisa memakai Function Expression Dan Function Declaration
-// sedangkan Function Arrow hanya memiliki Function Expression saja
-
-// Apabila fungsi hanya memiliki satu parameter, maka kita bisa menghapuskan tanda kurung seperti
-const hello = name => {console.log(`Hello ${name}`);}
-hello('World');
+/**
+ * Perlu kita perhatikan, jika kita lupa menuliskan keyword let, const, atau var
+ *  pada script ketika membuat sebuah variabel, maka variabel tersebut akan menjadi global.
+ */
 
 
-// kita juga menulis nya dengan lebih singakat lagi 
-// dan ketika gita tidak memerlukan parameter kita harus menuliskan tanda kurung kosong saja
-const greet = () => console.log('Selamat Pagi Semua');
-greet();
-// dan jika kita menuliskan kode seperti di atas 
-// dan ingin mengembalika hasil yang di berikan kita bisa tidak menuliskan return pada code
-const perkalian = (a,b) => console.log(a*b);
-perkalian(5,5);
+
+
+
+
+
+
+
+
+
